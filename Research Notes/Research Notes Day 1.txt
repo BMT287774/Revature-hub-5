@@ -1,0 +1,120 @@
+SQL REASEARCH NOTES 12/21-12/25;
+
+1) RDBMS(Relational Database Management System)
+
+a Relational Database refers to a database that stores data in a structured format, using rows and columns.
+This makes it easy to to locate and access specific values within the database. it is "relational" because 
+the values within each table are related to each other. Tables may also be related to other tables. The relational
+structure makes it possible to run queries across multiple tables at once.
+
+While a RDBMS describes the type of database an RDBMS manages. It all refers to the program itself.
+It can also provide a viual representation of the data. For example, it may display data in a table like a spreadsheet.
+
+Most well known DBMS applications fall into the RDBMS category:
+ - Oracle Database  - Microsoft SQL Server
+ - MySQL            - IBM DB2 
+--------------------------------------------------------------------------------------------------------------------------
+2) Normalization(1NF, 2NF, 3NF)
+
+Normalization is a series of steps followed to obtain a database design that allows for efficient access and storage of data.
+these steps reduce data redundancy and the chances of data becoming inconsistent. 
+
+First Normal Form(1NF)
+
+First normal form eliminates repeating groups by putting each into a separate table and connecting them with a one-to-many relationship.
+
+Two Rules follows this definition:
+1. Each table has a primary key made of one of severa fields and uniquely identifying each record.
+2. Each field is atomic, it does not contain more than one value
+
+Second Normal Form(2NF)
+
+Second normal form requires that every non-key attribute must depend on the whole of every candidate key and not on just a part of a key.
+
+Third Normal Form(3NF)
+
+Third normal form requires that non-key attributes moust depend on only composite keys. To fulfill this normal form it is necessary
+to put all fields that are in functional dependencies on non-key fields in a state in a separate table. At this stage, all non-key fields
+are dependent on the whole of every key and nothing but the key.
+-------------------------------------------------------------------------------------------------------------------------------------
+3) SQL Data Types and Operators
+
+Numeric: bit, tinyint, smallint, int, bigint, decimal, numeric, float, real
+Date/time: Date, Time, Datetime, Timestamp, Year
+Character/String: char, Varchar, Varchar(max), Text
+Unicode Character/String: Nchar, NVarchar, NVarchar(max), NText
+Binary: Binary, Varbinary, Varbinary(max), image
+Miscellaneous: Clob, Blob, XML, JSON
+
+Size:
+
+bit: 0 to 1
+tinyint, 0 to 255
+smallint: -32768 to 32767
+int: -2147483648 to -2147483647
+bigint: -9223372036854775808 to 9223372036854775807
+decimal: -10^38 + 1 to 10^38 - 1
+numeric: -10^38+1 to 10^38-1
+float: -1.79E + 308 to 1.79 + 308
+real: -3.40E + 38 to 3.40E + 38
+
+DATE: Stored date in the format YYYY-MM-DD
+TIME: Stored date in the format HH:MI:SS
+DATETIME: Stores date and time information in the format YYYY-MM-DD HH:MI:SS
+TIMESTAMP: Stores number of seconds passed since the Unix Epoch ('1970-01-01 00:00:00'UTC)
+YEAR: Stores year in 2 digit or 4 digit format. Range 1901 to 2155 in 4-digit format. Range
+70 to 69, representing 1970 to 2069
+
+CHAR: Fixed length with maximum length of 8000 characters
+VARCHAR: Variable length storage with maximum length of 8000 characters
+VARCHAR(max): Variable length storage with provided max characters, not supported in MySQL
+TEXT: Variable length storage with maximum size of 2GB data
+
+NCHAR: Fixed length with maximum length of 4000 characters
+NVARCHAR: Variable length storage with maximum length of 4000 characters
+NVARCHAR(max): Variable length storage with provided max characters
+NTEXT: Variable length storage with maximum size of 1GB data
+
+BINARY: Fixed length with maximum length of 8000 bytes
+VARBINARY: Variable length storage with maximum length of 8000 bytes
+VARBINARY(max):
+IMAGE: Variable length storage with maximum size of 2 GB binary data
+
+CLOB: Character large objects that can hold up to 2 GB 
+BLOB: For binary large objects
+XML: For storing xml data
+JSON: For storing JSON data
+------------------------------------------------------------------------------------------------
+4) SQL Sublanguages
+
+DDL (Data Definition Language)
+-Used to define Database objects like TABLE, VIEW, SEQUENCE, INDEX, SYNONYM creation or modification
+or removing.
+-CREATE, ALTER, DROP, TRUNCATE, RENAME are the DDL commands
+
+DML (Data Manipulation Language)
+-Used to manipulate the data in Database objects like table, view, index
+-INSERT, UPDATE, DELETE are the DML commands.
+
+DQL (Data Query Language)
+-Used to retreive information from the database objects. It is for read only purpose.
+-SELECT is the DQL command.
+
+TCL (Transaction Control Language)
+-Transaction control statement are use to apply the changes permanently save into the database.
+-COMMIT, ROLLBACK, SAVEPOINT, ROLLBACK TO, are the TCL commands.
+
+DCL (Data Control Language)
+-Data control statements are use to give privileges to acces limited data or share the information between users.
+-GRANT, REVOKE, AUDIT, COMMENT, ANALYZE are the DCL commands.
+-------------------------------------------------------------------------------------------------
+5) SQL Constraints and integrity 
+
+Unique Key: A column whose values must be unique in each row
+Primary Key: A column whose values uniquely identify each row
+Composite Key: Two or more columns acting together as a primary key
+Foreign Key: A column in one table that references a column in another table
+NOT NULL: The column must have a value in each row
+CHECK: The column values must meet some criteria
+
+
